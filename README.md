@@ -121,7 +121,7 @@ reg add "HKCR\CLSID\{YOUR-GUID-HERE}\InprocServer32" /v "CodeBase" /t REG_SZ /d 
 reg add "HKCR\CLSID\{YOUR-GUID-HERE}\InprocServer32" /v "Assembly" /t REG_SZ /d "PsdThumbnailProvider2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" /f
 ```
 
-This is because once the dll is initialized, Windows will refuse to change or delete it. Simply creating a new one and redirecting it registry pointers I found to be easier.
+This is because once the dll is initialized, Windows will refuse to change or delete it. Simply creating a new one and redirecting the registry pointers to it I found to be easier.
 
 Then repeat Step 9 to restart Explorer.
 
