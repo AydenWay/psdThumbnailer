@@ -19,7 +19,7 @@ Copy the output and paste it into `PsdThumbnailProvider.cs`, replacing the ("YOU
 
 ## Step 2 — Compile to DLL
 ```cmd
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:library /platform:x64 /out:"C:\Windows\PsdThumbnailProvider.dll" /reference:"C:\Windows\assembly\GAC_MSIL\System.Drawing\4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll" "C:\path\to\PsdThumbnailProvider.cs"
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:library /platform:x64 /out:"C:\Windows\PsdThumbnailProvider.dll" "C:\path\to\PsdThumbnailProvider.cs"
 ```
 > Replace `C:\path\to\` with the folder containing your `.cs` file.
 
