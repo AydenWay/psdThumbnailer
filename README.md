@@ -1,3 +1,5 @@
+Note: This is a personal project that is mostly vibe coded. It has allowed psd thumbnails for me, but I cannot guarantee success.
+
 # PSD Thumbnail Provider — Setup Guide
 
 All commands require an **Admin command prompt or PowerShell**.
