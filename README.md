@@ -41,6 +41,8 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegAsm.exe /codebase "C:\Windows
 reg add "HKCR\CLSID\{YOUR-GUID-HERE}\InprocServer32" /v "ThreadingModel" /t REG_SZ /d "Apartment" /f
 ```
 
+This allows multithreaded computing for the program.
+
 ---
 
 ## Step 5 — Add HKCU Registration (Explorer looks here first)
