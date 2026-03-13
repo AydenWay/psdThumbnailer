@@ -2,7 +2,7 @@ Note: This is a personal project that is mostly vibe coded. It has allowed psd t
 
 The purpose of this repository is to provide the file and instructions to enable psd file previews in file explorer on Windows. It does this with a C# file that searches each psd file for the embedded preview image, and using that for the file explorer preview. You then create a dll with that file, and make the required registry edits for the computer to make use of it.
 
-NOTE: This will only work on psd files for which "Maximize compatibility" is enabled. If already set, this setting is found in preferences -> file handling.
+Note: This will only work on psd files for which "Maximize compatibility" is enabled. If already set, this setting is found in preferences -> file handling.
 
 # PSD Thumbnail Provider — Setup Guide
 
