@@ -10,7 +10,9 @@ All commands require an **Admin command prompt or PowerShell**.
 
 ---
 
-## Step 1 — Generate a GUID
+## Step 1 — Download the file and Generate a GUID
+
+Download the attached .cs file and open it in a text editor like notepad
 
 Run this in PowerShell to generate a unique GUID for your extension:
 ```powershell
@@ -18,6 +20,8 @@ Run this in PowerShell to generate a unique GUID for your extension:
 ```
 
 Copy the output and paste it into `PsdThumbnailProvider.cs`, replacing the ("YOUR-GUID-HERE"):
+
+Make sure to the save the file.
 
 ---
 
@@ -65,7 +69,7 @@ reg add "HKCU\Software\Classes\CLSID\{YOUR-GUID-HERE}\InprocServer32" /v "Thread
 ---
 
 ## Step 6 — Disable Process Isolation
- Explorer requires DisableProcessIsolation to be set for .NET shell extensions — without it, it tries to run your DLL in an isolated surrogate process (dllhost.exe) which breaks .NET COM loading entirely.
+Explorer requires DisableProcessIsolation to be set for .NET shell extensions — without it, it tries to run your DLL in an isolated surrogate process (dllhost.exe) which breaks .NET COM loading entirely.
 ```cmd
 reg add "HKCU\Software\Classes\CLSID\{YOUR-GUID-HERE}" /v "DisableProcessIsolation" /t REG_DWORD /d 1 /f
 ```
@@ -122,8 +126,8 @@ reg add "HKCR\CLSID\{YOUR-GUID-HERE}\InprocServer32" /v "CodeBase" /t REG_SZ /d 
 reg add "HKCR\CLSID\{YOUR-GUID-HERE}\InprocServer32" /v "Assembly" /t REG_SZ /d "PsdThumbnailProvider2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" /f
 ```
 
-This is because once the dll is initialized, Windows will refuse to change or delete it. Simply creating a new one and redirecting the registry pointers to it I found to be easier.
+This is because once the dll is initialized, Windows will refuse to change or delete it as it is "locked". Simply creating a new one and redirecting the registry pointers to it I found to be easier. You can then delete the old .dll if desired.
 
 Then repeat Step 9 to restart Explorer.
 
-If this doess't work, you can try going to Disk Cleanup, selecting the C drive, selecting thumbnails, and pressing OK. This will clear the thumbnail cache which may allow the thumbnail to be updated.
+If this doesn't work, you can try going to Disk Cleanup, selecting the boot drive, selecting thumbnails, and pressing OK. This will clear the thumbnail cache which may be preventing the dll from generating new thumbnail images to replace the default logo.
